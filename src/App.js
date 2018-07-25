@@ -83,20 +83,6 @@ class DesktopContainer extends Component {
             style={{ minHeight: 700, padding: '1em 0em' }}
             vertical
           >
-            <Menu
-              fixed={fixed ? 'top' : null}
-              inverted={!fixed}
-              pointing={!fixed}
-              secondary={!fixed}
-              size='large'
-            >
-              <Container position='right'>
-                <Link activeClass="active" to="TOP" spy={true} smooth={true} offset={50} duration={500} onSetActive={this.handleSetActive}><Menu.Item as='a' active>MG</Menu.Item></Link>
-                <Link activeClass="active" to="skills" spy={true} smooth={true} offset={50} duration={500} onSetActive={this.handleSetActive}><Menu.Item as='a'>Skills</Menu.Item></Link>
-                <Menu.Item as='a'>About</Menu.Item>
-                <Menu.Item as='a'>Contact</Menu.Item>
-              </Container>
-            </Menu>
             <HomepageHeading />
           </Segment>
         </Visibility>
@@ -129,15 +115,6 @@ class MobileContainer extends Component {
     return (
       <Responsive {...Responsive.onlyMobile}>
         <Sidebar.Pushable>
-          <Sidebar as={Menu} animation='uncover' inverted vertical visible={sidebarOpened}>
-            <Menu.Item as='a' active>
-              Home
-            </Menu.Item>
-            <Menu.Item as='a'>Work</Menu.Item>
-            <Menu.Item as='a'>Company</Menu.Item>
-            <Menu.Item as='a'>Careers</Menu.Item>
-          </Sidebar>
-
           <Sidebar.Pusher
             dimmed={sidebarOpened}
             onClick={this.handlePusherClick}
@@ -149,13 +126,6 @@ class MobileContainer extends Component {
               style={{ minHeight: 350, padding: '1em 0em' }}
               vertical
             >
-              <Container>
-                <Menu inverted pointing secondary size='large'>
-                  <Menu.Item onClick={this.handleToggle}>
-                    <Icon name='sidebar' />
-                  </Menu.Item>
-                </Menu>
-              </Container>
               <HomepageHeading mobile />
             </Segment>
 
@@ -183,19 +153,18 @@ ResponsiveContainer.propTypes = {
 }
 
 const HomepageLayout = () => (
-  <ResponsiveContainer>
+<ResponsiveContainer>
     <Segment style={{ padding: '8em 0em' }} vertical>
-
       <Container textAlign='center' text>
         <Fade bottom>
           <p style={{ fontSize: '1.33em' }}>
-            Full stack web developer with an eye for frontend design. Strong skill set in creative problem solving and interpersonal communication.
+            I am Full stack web developer with an eye for frontend design. Strong skill set in creative problem solving and interpersonal communication.
             Able to quickly prototype ideas and pivot to meet project needs.
             Acutely aware of current web trends and always hungry to learn.
           </p>
         </Fade>
       </Container>
-    
+
       <Container style={{ padding: '8em 0em' }} textAlign='center' text>
         <Fade bottom cascade>
           <div>
@@ -224,80 +193,35 @@ const HomepageLayout = () => (
             </div>
           </Fade>
         </Container>
+
+        <Container textAlign='center' text>
+          <Fade bottom>
+            <Header as='h3' style={{ fontSize: '2em' }}>
+              Want to work together? Feel free to reach out!
+            </Header>
+          </Fade>
+        </Container>
+
+        <Container style={{ padding: '8em 0em' }} textAlign='center' text>
+          <Fade bottom cascade>
+            <div>
+              <a href="https://twitter.com/matthewdtotheg" target="_blank" rel="noopener noreferrer" ><i class="massive twitter square icon"></i></a>
+              <a href="https://github.com/matthewdtotheg" target="_blank" rel="noopener noreferrer"><i class="massive github square icon"></i></a>
+              <a href="https://www.linkedin.com/in/matthewdtotheg/" target="_blank" rel="noopener noreferrer"><i class="massive linkedin icon"></i></a>
+              <a href="mailto:mdgarrett1984@gmail.com"><i class="massive envelope square icon"></i></a>
+            </div>
+          </Fade>
+        </Container>
     </Segment>
 
-    <Segment style={{ padding: '0em' }} vertical>
-      <Grid celled='internally' columns='equal' stackable>
-        <Grid.Row textAlign='center'>
-          <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-              Dev
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>That is what they all say about us</p>
-          </Grid.Column>
-          <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-              Design
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>
-              <b>Nan</b> Chief Fun Officer Acme Toys
-            </p>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Segment>
 
-    <Segment style={{ padding: '0em' }} vertical>
-      <Grid celled='internally' columns='equal' stackable>
-        <Grid.Row textAlign='center'>
-          <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
-            <Header name="skills" as='h3' style={{ fontSize: '2em' }}>
-              Another thing
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>That is what they all say about us</p>
-          </Grid.Column>
-          <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-              Thing 4
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>
-              <b>Nan</b> Chief Fun Officer Acme Toys
-            </p>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Segment>
 
-    <Segment style={{ padding: '8em 0em' }} vertical>
-      <Container textAlign='center' text>
-        <Header as='h3' style={{ fontSize: '2em' }}>
-          ME
-        </Header>
-        <p style={{ fontSize: '1.33em' }}>
-          Full stack web developer with an eye for frontend design. Strong skill set in creative problem solving and interpersonal communication.
-          Able to quickly prototype ideas and pivot to meet project needs.
-          Acutely aware of current web trends and always hungry to learn.
-        </p>
-      </Container>
-    </Segment>
 
 
 
     <Segment inverted vertical style={{ padding: '5em 0em' }}>
-      <Container>
-        <Grid divided inverted stackable>
-          <Grid.Row>
-            <Grid.Column width={3}>
-              <Header inverted as='h4' content='About' />
-              <List link inverted>
-                <List.Item as='a'>Sitemap</List.Item>
-                <List.Item as='a'>Contact Us</List.Item>
-                <List.Item as='a'>Religious Ceremonies</List.Item>
-                <List.Item as='a'>Gazebo Plans</List.Item>
-              </List>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+      <Container textAlign='center' text>
+          <Header inverted as='h4' content='MG 2018' />
       </Container>
     </Segment>
   </ResponsiveContainer>
