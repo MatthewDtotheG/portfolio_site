@@ -22,6 +22,16 @@
   font-size: large;
 }
 
+.test {
+  color: black;
+}
+
+.test:hover {
+  color: #FDCB45;
+  transition: 0.7s;
+  cursor: pointer;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
